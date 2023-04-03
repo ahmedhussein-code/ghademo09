@@ -4,12 +4,20 @@ on:
       types:
         - opened
     workflow_dispatch:
+    push:
+      branches:
+#       - master
+        - 'bug*'
+      paths:
+        - 'src/App.js'
+#     paths-ignore:
+#       - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Output event data
-        run: echo "${{ toJSON(github.event) }}"
+        run: echo "${{ toJSON(github.event) }}"git 
       - name: Get code
         uses: actions/checkout@v3
       - name: Install dependencies
