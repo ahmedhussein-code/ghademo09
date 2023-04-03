@@ -9,7 +9,7 @@ on:
 #       - master
         - 'bug*'
       paths:
-        - 'src/App.js'
+        - 'src/App.jsx'
 #     paths-ignore:
 #       - '.github/workflows/*'
 jobs:
