@@ -33,13 +33,14 @@ jobs:
           path: |
             dist
             vite.config.js
-  deploy:
-    runs-on: ubuntu-latest
+  deploy:    
+    needs: test-and-build
+    runs-on: ubuntu-latest    
     steps:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
       - name: Download the package
-        uses: actions/download-artifacts@v3.0.2
+        uses: actions/download-artifact@v3.0.2
         with:
           name: package-files
       - name: Output package content
